@@ -8,7 +8,7 @@ var markers = []
  * Fetch neighborhoods and cuisines as soon as the page is loaded.
  */
 document.addEventListener('DOMContentLoaded', (event) => {
-  initMap(); // added 
+  initMap(); // added
   fetchNeighborhoods();
   fetchCuisines();
 });
@@ -99,7 +99,7 @@ updateRestaurants = () => {
 
   cSelect.tabIndex = "2";
   nSelect.tabIndex = "2";
-  
+
   const cIndex = cSelect.selectedIndex;
   const nIndex = nSelect.selectedIndex;
 
@@ -153,6 +153,7 @@ createRestaurantHTML = (restaurant) => {
   const image = document.createElement('img');
   image.className = 'restaurant-img';
   image.src = DBHelper.imageUrlForRestaurant(restaurant);
+  image.alt = DBHelper.restaurantName(restaurant) + ' Restaurant Image';
   li.append(image);
 
   const name = document.createElement('h1');
@@ -191,4 +192,4 @@ addMarkersToMap = (restaurants = self.restaurants) => {
     self.markers.tabIndex = '-1';
   });
 
-} 
+}
